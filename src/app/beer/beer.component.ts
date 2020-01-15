@@ -1,6 +1,6 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Beer } from '../beer';
-import { EventEmitter } from 'protractor';
+import { BeerStatus } from '../beer-status.enum';
 
 @Component({
   selector: 'app-beer',
@@ -13,7 +13,25 @@ export class BeerComponent {
 
   get statusName(): string {
     const { status } = this.beer;
+    switch (status) {
+      case BeerStatus.DRUNK: return "DRUNK";
+      case BeerStatus.BOUGHT: return "BOUGHT";
+      case BeerStatus.TO_BUY: return "TO_BUY";
+      case BeerStatus.MATURES: return "MATURES";
+      default: return "ONE_KNOWS";
+    }
+  }
 
+  get className() {
+    const statusName = this.statusName.split(" ").pop().toLocaleLowerCase();
 
+    return {
+      'status': true,
+      [`status-${statusName}`]: true
+    }
+  }
+
+  public remove(): void {
+    this.removeBeer.emit(this.beer);
   }
 }

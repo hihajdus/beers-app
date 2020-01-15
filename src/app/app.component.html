@@ -1,5 +1,13 @@
-<div>
- <h1>{{title}}</h1>
- <app-beer></app-beer>
+<div class="container">
+	<h2>Beer App</h2>
+	<app-add-beer (addBeer)="addB($event)"></app-add-beer>
+	<div class="beer-list">
+		<ul class="collection">
+			<li *ngFor="let beer of beers" class="collection-beer">
+				<app-beer [beer]="beer" (removeBeer)="removeBeer($event)"></app-beer>
+			</li>
+		</ul>
+	</div>
 </div>
+
 
