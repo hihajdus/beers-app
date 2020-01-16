@@ -1,17 +1,17 @@
 <mat-card>
 	<mat-form-field>
-		<input matInput placeholder="Beer name">
+		<input matInput placeholder="Beer name" type="text">
 	</mat-form-field>
 
 	<h4>Beer status</h4>
 	<mat-form-field>
-		<mat-select matNativeControl required>
-			<mat-option value="DRUNK">DRUNK</mat-option>
-			<mat-option value="BOUGHT">BOUGHT</mat-option>
-			<mat-option value="TO_BUY">TO_BUY</mat-option>
-			<mat-option value="MATURES">MATURES</mat-option>
-			<mat-option value="ONE_KNOWS">ONE_KNOWS</mat-option>
+		<mat-select matNativeControl>
+			<mat-option value="0">DRUNK</mat-option>
+			<mat-option value="1">BOUGHT</mat-option>
+			<mat-option value="2">TO_BUY</mat-option>
+			<mat-option value="3">MATURES</mat-option>
+			<mat-option value="4">ONE_KNOWS</mat-option>
 		</mat-select>
 	</mat-form-field>
-		<button mat-button color="primary">Add beer</button>
+		<button mat-button color="primary" (click)="add()">Add beer</button>
 </mat-card>

@@ -13,6 +13,7 @@ export class BeerComponent {
 
   get statusName(): string {
     const { status } = this.beer;
+
     switch (status) {
       case BeerStatus.DRUNK: return "DRUNK";
       case BeerStatus.BOUGHT: return "BOUGHT";
@@ -22,8 +23,8 @@ export class BeerComponent {
     }
   }
 
-  get className() {
-    const statusName = this.statusName.split(" ").pop().toLocaleLowerCase();
+  get classNames() {
+    const statusName = this.statusName.split(" ").pop().toLowerCase();
 
     return {
       'status': true,
