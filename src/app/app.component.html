@@ -1,13 +1,22 @@
 <div class="container">
 	<h2>Beer App</h2>
-	<app-add-beer (addBeer)="addBeer($event)"></app-add-beer>
-	<div class="beer-list">
-		<ul class="collection">
-			<li *ngFor="let beer of beers" class="collection-beer">
-				<app-beer [beer]="beer" (removeBeer)="removeBeer($event)"></app-beer>
-			</li>
-		</ul>
-	</div>
+
+	<nav>
+		<button mat-raised-button (click)="toggleMark('add')">Add beer</button>
+		<button mat-raised-button (click)="toggleMark('list')">List of beer</button>
+	</nav>
+
+	<app-add-beer
+		(addBeer)="addBeer($event)"
+		*ngIf="showAddBeer"
+	></app-add-beer>
+
+	<app-beer
+		[beer]="beer"
+		(removeBeer)="removeBeer($event)"
+		*ngIf="showListBeer"
+	></app-beer>
+
 </div>
 
 

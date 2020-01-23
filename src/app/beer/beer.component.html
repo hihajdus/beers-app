@@ -1,3 +1,9 @@
-<h5>Beer name</h5>
-<span [ngClass]="classNames">{{ statusName }}</span>
-<i (click)="remove()">close</i>
+<div class="beer-list">
+	<ul class="collection">
+		<li *ngFor="let beer of beers" class="collection-beer">
+			<h5>Beer name</h5>
+			<span [ngClass]="classNames">{{ statusName }}</span>
+			<i (click)="remove()">close</i>
+		</li>
+	</ul>
+</div>
